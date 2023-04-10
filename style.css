@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: #1F2937;
+    font-size: 1.6rem;
+}
+
+form{
+    padding: 2.4rem;
+    max-width: 40rem;
+    margin: auto;
+}
+
+.flex{
+    display: flex;
+}
+
+#credit-card{
+    width: 32.8rem;
+    height: 21.2rem;
+    perspective: 60rem;
+}
+
+#credit-card > div{
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#card-front{
+    background-image: url('./assets/blank-card.png');
+    background-repeat: no-repeat;
+    top: 5px;
+    transform: rotateY(0);
+    position: relative;
+}
+
+#card-number-container{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 4.5rem;
+    top: 10.5rem;
+    color: #f9fafb79;
+    letter-spacing: .1rem;
+}
+
+
+#name-cvv-container{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 4.5rem;
+    top: 14rem;
+    color: #f9fafb79;
+}
+
+#card-back{
+    background-image: url('./assets/card-back.png');
+    background-repeat: no-repeat;
+    transform: rotateY(-180deg);
+}
+
+#card-cvv{
+    top: 12rem;
+    left: 21rem;
+    position: absolute;
+    color: #2424249f;
+    
+}
+
+.flag{
+    position: absolute;
+    top: 3.2rem;
+    left: 4.5rem;
+    opacity: 0;
+}
+
+img.selected{
+    opacity: 1;
+}
+
+.inputs{
+    margin-top: 3rem;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.one-line{
+    gap: 2.4rem;
+}
+
+.one-line .input-wrapper:nth-child(1){
+    flex-basis: 80%;
+}
+
+label{
+    color: #f3f4f6;
+    font-size: 1.45rem;
+}
+
+input{
+    width: 100%;
+    background-color: #111827;
+    border: none;
+    padding: 1.2rem;
+    border: 0.1rem solid #374151;
+    color: #f3f4f6;
+    outline: none;
+    border-radius: 3px;
+    font-size: 1.5rem;
+}
+
+input:focus{
+    border-color: #9333EA;
+}
+
+input::placeholder{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #9CA3AF;
+}
+
+input:invalid:focus{
+    border-color: #FB7185;
+}
+
+input:invalid:focus + .warning{
+    display: flex;
+}
+
+.help{
+    align-items: center;
+    gap: .4rem;
+}
+
+.help-icon{
+    height: 14px;
+    width: 14px;
+    cursor: pointer;
+}
+
+.warning{
+    display: none;
+    color: #FB7185;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 300;
+    font-size: 1.45rem;
+}
+
+.safe{
+    margin-top: 4rem;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.safe span{
+    color: #E5E7EB;
+    font-weight: 300;
+    font-size: 1.52rem;
+}
+
+#add-card-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    background-color: #9333EA;
+    width: 100%;
+    color: #F9FAFB;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+    font-size: 1.6rem;
+}
+
+#add-card-button:hover{
+    cursor: pointer;
+    background-color: #a353ee;
+} 
+
+#add-card-button #load{
+    width: 2rem;
+    display: none;
+    animation: buttonLoad 3s infinite linear;
+}
+
+@keyframes card-front-in {
+    to{
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes card-back-in {
+    to{
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes card-front-out {
+    from{
+        transform: rotateY(180deg);
+    }
+    to{
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes card-back-out {
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(-180deg);
+    }
+}
+
+@keyframes buttonLoad {
+    to{
+        rotate: 1turn;
+    }
+}

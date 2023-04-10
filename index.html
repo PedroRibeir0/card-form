@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Form</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form>
+      <section id="credit-card">
+        <div id="card-front">
+          <img class="flag" src="assets/Bandeiras=Visa.png" alt="Visa flag">
+          <img class="flag" src="assets/Bandeiras=Mastercard.png" alt="Mastercard flag">
+          <div id="card-number-container">0000 0000 0000 0000</div>
+          <div id="name-cvv-container">
+            <span id="card-name">Seu nome aqui</span>
+            <div id="card-validity">00/00</div>
+          </div>
+        </div>
+        <div id="card-back">
+          <span id="card-cvv">000</span>
+        </div>
+      </section>
+      
+      <section class="inputs flex">
+        <div class="input-wrapper">
+          <label for="cc-num">Número do Cartão</label>
+          <input 
+          onchange="changeNum()"
+          class="turn-front"
+          required
+          type="text" 
+          id="cc-num"
+          placeholder="**** **** **** ****">
+          <div class="warning">
+            <img src="assets/Warning.png" alt="warning">
+            <span>Numero de cartão invalido</span>
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <label for="cc-name">Nome do Titular</label>
+          <input
+          maxlength="21"
+          class="turn-front"
+          required
+          type="text" 
+          id="cc-name"
+          placeholder="Nome como está no cartão">
+          <div class="warning">
+            <img src="assets/Warning.png" alt="warning">
+            <span>Nome do titular é obrigatório</span>
+          </div>
+        </div>
+        <div class="one-line flex">
+          <div class="input-wrapper">
+            <label for="cc-vality">Validade</label>
+            <input 
+            class="turn-front"
+            required
+            type="text" 
+            id="cc-validity"
+            placeholder="mm/aa">
+            <div class="warning">
+              <img src="assets/Warning.png" alt="warning">
+              <span>Validade invalida</span>
+            </div>
+          </div>
+          <div class="input-wrapper">
+            <label class="help flex" for="cc-cvv">CVV <img class="help-icon" src="assets/help.png" alt="help" title="Numero com 3 dígitos, geralmente está nas costas do cartão"></label>
+            <input 
+            required
+            type="text" 
+            id="cc-cvv"
+            placeholder="***">
+            <div class="warning">
+              <img src="assets/Warning.png" alt="warning">
+              <span>CVV invalido</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="safe flex">
+        <img src="assets/ShieldCheck.png" alt="shield-check">
+        <span>Seus dados estão seguros</span>
+      </section>
+      <button type="submit" id="add-card-button"><span id="button-text">Adicionar cartão</span>
+        <img id="load" src="assets/SpinnerGap.png" alt="load">
+      </button>
+    </form>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="/main.js"></script>
+  </body>
+  </html>
+  
